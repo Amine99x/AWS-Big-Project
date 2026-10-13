@@ -366,3 +366,19 @@ Copy `.env.example` to `.env` and fill in your values. Never commit `.env`.
 
 > For AWS deployment, all of the above are stored in **AWS Secrets Manager** and automatically injected into ECS task definitions by Terraform.
 
+# Important Remark: I am already aware of this
+
+> **Architecture Decision & Infrastructure Trade-off:** 
+> This project uses direct AWS Application Load Balancer DNS endpoints (e.g., `http://clothes-alb-201777499.us-east-1.elb.amazonaws.com/`) rather than a custom domain routed through Amazon Route 53. 
+> 
+> * **Justification:** For this academic lab/portfolio environment, managing domain registration and Route 53 hosted zones incurs unnecessary recurring costs. Using direct ALB endpoints delivers the exact same layer-7 routing and microservices traffic flow for free. In a production enterprise setup, Route 53 combined with AWS Certificate Manager (ACM) for SSL/TLS termination and custom domain mapping would be standard practice.
+
+> **Pipeline Security Standard:** 
+> All third-party GitHub Actions (such as Trivy, Docker buildx, and AWS credential configurators) are pinned to specific version tags rather than floating branches (`@master`/`@main`). This eliminates supply chain injection risks and prevents unexpected upstream breaking changes from disrupting production deployments.
+
+> **Database Initialization & Security Trade-off (`init.sql`):**
+> 
+> In `init.sql`, the MySQL user is hardcoded as `rental_user` with a static password (`xpH2zXV6P2xHcaIlqNq794eB`), and the default admin password hash is also hardcoded.
+> * **Implementation:** The local initialization script (`init.sql`) defines a default MySQL user (`rental_user`) with a static password and provisions a pre-hashed admin account so the application works out-of-the-box via `docker compose up`.
+> * **Design Justification:** For an academic lab and portfolio project, hardcoding these initial values ensures zero-friction setup and immediate container health verification without complex manual bootstrapping. 
+> * **Production Standard:** In a true enterprise production environment, these credentials would be dynamically generated, injected securely via environment secrets or AWS Secrets Manager, and managed with strict least-privilege rotation policies.
