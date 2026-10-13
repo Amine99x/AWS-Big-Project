@@ -26,6 +26,9 @@
 
 The application is designed for cloud-native deployment on **AWS ECS Fargate**, with infrastructure fully managed as code via **Terraform**, and an automated **CI/CD pipeline** on GitHub Actions that handles linting, security scanning, Docker image building, ECR delivery, and rolling ECS deployments.
 
+![AWS Cloud Microservices Architecture Diagram](./Velura/Pictures/2026-10-13 22_06_25-.jpeg)
+![AWS Cloud Microservices Architecture Diagram](./Velura/Pictures/2026-10-13 22_06_54-.jpeg)
+
 ---
 
 ## Architecture
@@ -141,8 +144,6 @@ velura-project-AWS-/
         └── terraform.tfvars.example    # Safe template (no real values)
 ```
 
-> The Terraform infrastructure code lives in a **separate repository**: [`velura-infra-terraform`](../Velura/terraform)
-
 ---
 
 ## Local Development
@@ -151,6 +152,16 @@ velura-project-AWS-/
 
 - Docker & Docker Compose
 - Python 3.11+ (for running tests locally)
+
+Pour orchestrer tous les services ensemble, nous avons utilisé Docker Compose.
+Avec une seule commande (docker-compose up), tous les conteneurs démarrent automatiquement :
+ • Frontend
+ • Microservices backend
+ • Base de données
+Chaque service est isolé, indépendant, et communique via le réseau Docker interne.
+
+
+![AWS Cloud Microservices Architecture Diagram](./Velura/Pictures/2026-10-13 22_07_23-Greenshot.jpeg)
 
 ### 1. Configure environment
 
@@ -191,7 +202,6 @@ PYTHONPATH=. pytest services/auth/tests/ -v
 
 ## AWS Infrastructure (Terraform)
 
-The cloud infrastructure is fully managed via Terraform in the [`velura-infra-terraform`](../velura-infra-terraform) directory.
 
 ### Resources provisioned
 
@@ -240,6 +250,12 @@ terraform output ecr_urls    # ECR registry URLs for each service
 
 > **Security note:** Never commit `terraform.tfvars` — it contains sensitive values. Only `terraform.tfvars.example` is safe to commit.
 
+
+Les services en cours d’exécution dans le cluster ECS :
+
+![AWS Cloud Microservices Architecture Diagram](./Velura/Pictures/2026-10-13 22_08_57-Greenshot.jpeg)
+
+
 ---
 
 ## CI/CD Pipeline
@@ -267,6 +283,17 @@ push to main
             └── aws ecs update-service --force-new-deployment (all services)
 ```
 
+
+### Parallélisme Matriciel et Ordonnancement Graphique (DAG):
+
+![AWS Cloud Microservices Architecture Diagram](./Velura/Pictures/2026-10-13 22_09_09-Greenshot)
+
+![AWS Cloud Microservices Architecture Diagram](./Velura/Pictures/2026-10-13 22_09_23-Greenshot)
+
+### Exemple de l’analyse Trivy : 
+
+![AWS Cloud Microservices Architecture Diagram](./Velura/Pictures/2026-10-13 22_09_39-)
+
 ### Required GitHub Secrets
 
 | Secret | Description |
@@ -289,6 +316,10 @@ All services are instrumented for centralized logging:
 
 Each service uses structured logging with `%(asctime)s %(levelname)s %(message)s` format, making log queries consistent across the entire platform.
 
+![AWS Cloud Microservices Architecture Diagram](./Velura/Pictures/2026-10-13 22_10_48-Greenshot)
+
+![AWS Cloud Microservices Architecture Diagram](./Velura/Pictures/2026-10-13 22_11_09-Greenshot)
+
 ---
 
 ## Security
@@ -301,6 +332,16 @@ Each service uses structured logging with `%(asctime)s %(levelname)s %(message)s
 - **RDS** is in a private subnet — not reachable from the public internet.
 - **Backend ECS tasks** are in private subnets — only reachable via the ALB.
 - **`.env` and `terraform.tfvars`** are in `.gitignore` — only example files are committed.
+
+
+### Stockage et indexation—Elasticsearch :
+
+- Sécurité d’Elasticsearch est activée 
+- Authentification par mot de passe 
+- API Keys activées 
+
+![AWS Cloud Microservices Architecture Diagram](./Velura/Pictures/2026-10-13 22_10_27-)
+
 
 ---
 
@@ -324,3 +365,6 @@ Copy `.env.example` to `.env` and fill in your values. Never commit `.env`.
 | `KIBANA_ENCRYPTION_KEY` | 32-char key for Kibana saved objects encryption |
 
 > For AWS deployment, all of the above are stored in **AWS Secrets Manager** and automatically injected into ECS task definitions by Terraform.
+
+## Screenshot
+
