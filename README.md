@@ -19,7 +19,7 @@
 - [Environment Variables](#environment-variables)
 
 ---
-### 🚀 Tech Stack & Tools
+### Tech Stack & Tools
 
 <p align="left">
   <!-- Cloud & Infrastructure -->
