@@ -30,7 +30,9 @@ The application is designed for cloud-native deployment on **AWS ECS Fargate**, 
 
 ## Architecture
 
-![AWS Cloud Microservices Architecture Diagram](./Velura/Pictures/architecture-diagram.jpeg)---
+![AWS Cloud Microservices Architecture Diagram](./Velura/Pictures/architecture-diagram.jpeg)
+
+---
 
 ## Services
 
@@ -139,7 +141,7 @@ velura-project-AWS-/
         └── terraform.tfvars.example    # Safe template (no real values)
 ```
 
-> The Terraform infrastructure code lives in a **separate repository**: [`velura-infra-terraform`](../velura-infra-terraform)
+> The Terraform infrastructure code lives in a **separate repository**: [`velura-infra-terraform`](../Velura/terraform)
 
 ---
 
