@@ -26,8 +26,8 @@
 
 The application is designed for cloud-native deployment on **AWS ECS Fargate**, with infrastructure fully managed as code via **Terraform**, and an automated **CI/CD pipeline** on GitHub Actions that handles linting, security scanning, Docker image building, ECR delivery, and rolling ECS deployments.
 
-![AWS Cloud Microservices Architecture Diagram](./Velura/Pictures/2026-10-13 22_06_25-.jpeg)
-![AWS Cloud Microservices Architecture Diagram](./Velura/Pictures/2026-10-13 22_06_54-.jpeg)
+![AWS Cloud Microservices Architecture Diagram](./Velura/Pictures/2026-10-13 22_06_25-.png)
+![AWS Cloud Microservices Architecture Diagram](./Velura/Pictures/2026-10-13 22_06_54-.png)
 
 ---
 
@@ -161,7 +161,7 @@ Avec une seule commande (docker-compose up), tous les conteneurs démarrent auto
 Chaque service est isolé, indépendant, et communique via le réseau Docker interne.
 
 
-![AWS Cloud Microservices Architecture Diagram](./Velura/Pictures/2026-10-13 22_07_23-Greenshot.jpeg)
+![AWS Cloud Microservices Architecture Diagram](./Velura/Pictures/2026-10-13 22_07_23-Greenshot.png)
 
 ### 1. Configure environment
 
@@ -253,7 +253,7 @@ terraform output ecr_urls    # ECR registry URLs for each service
 
 Les services en cours d’exécution dans le cluster ECS :
 
-![AWS Cloud Microservices Architecture Diagram](./Velura/Pictures/2026-10-13 22_08_57-Greenshot.jpeg)
+![AWS Cloud Microservices Architecture Diagram](./Velura/Pictures/2026-10-13 22_08_57-Greenshot.png)
 
 
 ---
@@ -286,9 +286,9 @@ push to main
 
 ### Parallélisme Matriciel et Ordonnancement Graphique (DAG):
 
-![AWS Cloud Microservices Architecture Diagram](./Velura/Pictures/2026-10-13 22_09_09-Greenshot)
+![AWS Cloud Microservices Architecture Diagram](./Velura/Pictures/2026-10-13 22_09_09-Greenshot.png)
 
-![AWS Cloud Microservices Architecture Diagram](./Velura/Pictures/2026-10-13 22_09_23-Greenshot)
+![AWS Cloud Microservices Architecture Diagram](./Velura/Pictures/2026-10-13 22_09_23-Greenshot.png)
 
 ### Exemple de l’analyse Trivy : 
 
@@ -316,9 +316,9 @@ All services are instrumented for centralized logging:
 
 Each service uses structured logging with `%(asctime)s %(levelname)s %(message)s` format, making log queries consistent across the entire platform.
 
-![AWS Cloud Microservices Architecture Diagram](./Velura/Pictures/2026-10-13 22_10_48-Greenshot)
+![AWS Cloud Microservices Architecture Diagram](./Velura/Pictures/2026-10-13 22_10_48-Greenshot.png)
 
-![AWS Cloud Microservices Architecture Diagram](./Velura/Pictures/2026-10-13 22_11_09-Greenshot)
+![AWS Cloud Microservices Architecture Diagram](./Velura/Pictures/2026-10-13 22_11_09-Greenshot.png)
 
 ---
 
@@ -340,7 +340,7 @@ Each service uses structured logging with `%(asctime)s %(levelname)s %(message)s
 - Authentification par mot de passe 
 - API Keys activées 
 
-![AWS Cloud Microservices Architecture Diagram](./Velura/Pictures/2026-10-13 22_10_27-)
+![AWS Cloud Microservices Architecture Diagram](./Velura/Pictures/2026-10-13 22_10_27-.png)
 
 
 ---
