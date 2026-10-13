@@ -366,5 +366,3 @@ Copy `.env.example` to `.env` and fill in your values. Never commit `.env`.
 
 > For AWS deployment, all of the above are stored in **AWS Secrets Manager** and automatically injected into ECS task definitions by Terraform.
 
-## Screenshot
-
