@@ -26,7 +26,7 @@
 
 The application is designed for cloud-native deployment on **AWS ECS Fargate**, with infrastructure fully managed as code via **Terraform**, and an automated **CI/CD pipeline** on GitHub Actions that handles linting, security scanning, Docker image building, ECR delivery, and rolling ECS deployments.
 
-![AWS Cloud Microservices Architecture Diagram](./Velura/Pictures/2026-10-13 22_06_25-.png)
+![AWS Cloud Microservices Architecture Diagram](./Pictures/2026-10-13 22_06_25-.png)
 ![AWS Cloud Microservices Architecture Diagram](./Velura/Pictures/2026-10-13 22_06_54-.png)
 
 ---
