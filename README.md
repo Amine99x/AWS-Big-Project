@@ -30,38 +30,7 @@ The application is designed for cloud-native deployment on **AWS ECS Fargate**, 
 
 ## Architecture
 
-```
-                        ┌─────────────────────────────────────┐
-                        │          AWS Application             │
-  Browser ──────────►  │  Load Balancer (ALB)  :80            │
-                        │  Path-based routing                  │
-                        └──────────┬──────────────────────────┘
-                                   │
-           ┌───────────────────────┼───────────────────────────┐
-           │                       │                           │
-           ▼                       ▼                           ▼
-     ┌──────────┐          ┌──────────────┐           ┌──────────────┐
-     │ Frontend │          │  Auth Svc    │           │ Catalog Svc  │
-     │ (Nginx)  │          │  :5001 /auth │           │ :5002/catalog│
-     └──────────┘          └──────────────┘           └──────────────┘
-                                   │
-                      ┌────────────┴────────────┐
-                      ▼                         ▼
-              ┌──────────────┐         ┌──────────────┐
-              │ Rental Svc   │         │  Admin Svc   │
-              │ :5003/rental │         │ :5004/admin  │
-              └──────────────┘         └──────────────┘
-                      │
-                      ▼
-           ┌───────────────────┐
-           │  AWS RDS MySQL    │  (private subnet)
-           └───────────────────┘
-
-  Logging: Filebeat ──► Elasticsearch ──► Kibana
-  Secrets: All sensitive config via AWS Secrets Manager
-  Images:  AWS ECR (Elastic Container Registry)
-  Network: VPC with public/private subnets + NAT Gateway
-```
+![Alt Text for Image](AWS-Big-Project/Velura/Pictures/AWS Cloud Microservices Architecture Diagram.jpeg)
 
 ---
 
