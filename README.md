@@ -30,8 +30,7 @@ The application is designed for cloud-native deployment on **AWS ECS Fargate**, 
 
 ## Architecture
 
-![AWS Cloud Microservices Architecture Diagram](./Pictures/architecture-diagram.jpeg)
----
+![AWS Cloud Microservices Architecture Diagram](./Velura/Pictures/architecture-diagram.jpeg)---
 
 ## Services
 
