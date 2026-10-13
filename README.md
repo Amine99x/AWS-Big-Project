@@ -28,24 +28,18 @@
   <a href="https://www.terraform.io/"><img src="https://img.shields.io/badge/IaC-Terraform-844FBA?logo=terraform&logoColor=white" alt="Terraform"></a>
   <a href="https://www.docker.com/"><img src="https://img.shields.io/badge/Containerization-Docker-2496ED?logo=docker&logoColor=white" alt="Docker"></a>
   <a href="https://www.nginx.com/"><img src="https://img.shields.io/badge/Proxy-Nginx-009639?logo=nginx&logoColor=white" alt="Nginx"></a>
-
   <br>
-
   <!-- Backend & Database -->
   <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Backend-Python_3.11-3776AB?logo=python&logoColor=white" alt="Python"></a>
   <a href="https://flask.palletsprojects.com/"><img src="https://img.shields.io/badge/Framework-Flask-000000?logo=flask&logoColor=white" alt="Flask"></a>
   <a href="https://www.mysql.com/"><img src="https://img.shields.io/badge/Database-MySQL_8.0-4479A1?logo=mysql&logoColor=white" alt="MySQL"></a>
-
   <br>
-
   <!-- Observability & Security -->
   <a href="https://www.elastic.co/elasticsearch"><img src="https://img.shields.io/badge/Logs-Elasticsearch_8.12-005571?logo=elasticsearch&logoColor=white" alt="Elasticsearch"></a>
   <a href="https://www.elastic.co/kibana"><img src="https://img.shields.io/badge/Dashboard-Kibana_8.12-005571?logo=kibana&logoColor=white" alt="Kibana"></a>
   <a href="https://www.elastic.co/beats/filebeat"><img src="https://img.shields.io/badge/Shipper-Filebeat_8.12-005571?logo=beats&logoColor=white" alt="Filebeat"></a>
   <a href="https://trivy.dev/"><img src="https://img.shields.io/badge/Security-Trivy_Scanner-1C1C1C?logo=trivy&logoColor=white" alt="Trivy"></a>
-
   <br>
-
   <!-- CI/CD & Version Control -->
   <a href="https://github.com/features/actions"><img src="https://img.shields.io/badge/CI%2FCD-GitHub_Actions-2088FF?logo=githubactions&logoColor=white" alt="GitHub Actions"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License"></a>
